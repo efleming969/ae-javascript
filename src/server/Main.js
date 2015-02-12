@@ -3,7 +3,7 @@ var path = require ( "path" )
 var bodyParser = require ( "body-parser" )
 var express = require ( "express" )
 
-exports.start = function ( port, clientPath, callback ) {
+exports.start = function ( port, callback ) {
 
   var app = express ()
   var server = http.Server ( app )
@@ -16,8 +16,7 @@ exports.start = function ( port, clientPath, callback ) {
   app.use ( bodyParser.json () )
   app.use ( router )
 
-  app.use ( express.static ( path.resolve ( "./src/client" ) ) )
-  app.use ( express.static ( path.resolve ( "./node_modules" ) ) )
+  app.use ( express.static ( path.resolve ( "target/client" ) ) )
 
   server.listen ( port , function () {
     callback ( server )

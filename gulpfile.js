@@ -2,89 +2,67 @@ var gulp = require ( "gulp" )
 var rename = require ( "gulp-rename" )
 var gutil = require ( "gulp-util" )
 var sass = require ( "gulp-sass")
-var browserify = require ( "gulp-browserify" )
-var ChildProcess = require ( "child_process" )
+var concat = require ( "gulp-concat")
 
-gulp.task ( "statics"
-, function () {
-    gulp.src ( "src/client/index.html" )
-        .pipe ( gulp.dest ( "target/client" ) )
-  } )
+gulp.task( "build:statics", buildStatics )
+gulp.task( "build:styles", buildStyles )
+gulp.task( "build:scripts", buildScripts )
+gulp.task( "build:all", [ "build:statics", "build:styles", "build:scripts" ] )
+gulp.task( "build:continuous", [ "build:all" ], continuousBuild )
 
-gulp.task ( "styles"
-, function () {
-    gulp.src ( "src/client/index.sass" )
-        .pipe ( sass  () )
-        .pipe ( gulp.dest ( "target/client" ) )
-  } )
+function buildScripts ()
+{
+  var dependencies =
+  [ "./node_modules/jquery/dist/jquery.js"
+  , "./node_modules/underscore/underscore.js"
+  , "./node_modules/chai/chai.js"
+  , "./node_modules/sinon/pkg/sinon.js"
+  , "./node_modules/mocha/mocha.js"
+  , "./node_modules/mocha/mocha.css"
+  ]
 
-gulp.task ( "browserify"
-, function () {
-    gulp.src ( "src/Client.js" )
-        .pipe ( browserify ( {} ) )
-        .pipe ( rename ( "index.js" ) )
-        .pipe ( gulp.dest ( "target/client" ) )
-  } )
+  var scripts =
+  [ "./src/client/Greeting.js"
+  , "./src/client/main.js"
+  ]
 
-gulp.task ( "test:units"
-, function () {
-    
-    var cp = ChildProcess.spawn ( "./node_modules/.bin/nodeunit"
-    , [ "test/units" ] )
+  var testScripts =
+  [ "./src/client/mainTest.js"
+  ]
 
-    cp.stdout.pipe ( process.stdout )
-    cp.stderr.pipe ( process.stderr )
-  } )
+  gulp
+    .src( dependencies )
+    .pipe( gulp.dest ( "target/client/dependencies" ) )
 
-gulp.task ( "test:integrations"
-, function () {
-    
-    var cp = ChildProcess.spawn ( "./node_modules/.bin/nodeunit"
-    , [ "test/integrations" ] )
+  gulp
+    .src( scripts )
+    .pipe( concat( "index.js") )
+    .pipe( gulp.dest( "target/client" ) )
 
-    cp.stdout.pipe ( process.stdout )
-    cp.stderr.pipe ( process.stderr )
-  } )
+  gulp
+    .src( testScripts )
+    .pipe( concat( "indexTest.js") )
+    .pipe( gulp.dest( "target/client" ) )
+}
 
-gulp.task ( "test:features", [ "statics", "styles" ]
-, function () {
-    
-    var featuresToRun = []
+function buildStatics ()
+{
+  gulp
+    .src( [ "src/client/index.html", "src/client/indexTest.html" ] )
+    .pipe( gulp.dest ( "target/client" ) )
+}
 
-    if ( gutil.env.only )
-      featuresToRun.push ( "test/features/" + gutil.env.only + ".feature" )
-    else
-      featuresToRun.push ( "test/features" )
+function buildStyles ()
+{
+  gulp
+    .src( "src/client/index.sass" )
+    .pipe( sass  () )
+    .pipe( gulp.dest ( "target/client" ) )
+}
 
-    var cp = ChildProcess.spawn ( "./node_modules/.bin/cucumber-js" , featuresToRun )
-
-    cp.stdout.pipe ( process.stdout )
-    cp.stderr.pipe ( process.stderr )
-  } )
-
-gulp.task ( "test", [ "test:units" ] ) //, "test:integrations", "test:features" ] )
-
-gulp.task ( "default"
-, function () {
-    gulp.start ( "statics", "styles", "browserify" )
-
-    gulp.watch ( "src/client/**/*.sass", [ "styles" ] )
-    gulp.watch ( "src/**/*.js", [ "browserify" ] )
-  } )
-
-gulp.task ( "tdd"
-, function () {
-    gulp.start ( "statics", "styles", "browserify", "test:units"
-    , "test:integrations" )
-
-    gulp.watch ( "src/**/*.js" , [ "test:units", "test:integrations" ] )
-  } )
-
-gulp.task ( "bdd"
-, function () {
-    gulp.start ( "statics", "styles", "browserify", "test:features" )
-
-    gulp.watch ( [ "src/**/*.js", "test/features/**/*" ]
-    , [ "test:features" ] )
-
-  } )
+function continuousBuild ()
+{
+  gulp.watch( "src/client/**.html", [ "build:statics" ] )
+  gulp.watch( "src/client/**.sass", [ "build:styles" ] )
+  gulp.watch( "src/client/**.js", [ "build:scripts" ] )
+}

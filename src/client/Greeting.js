@@ -2,7 +2,5 @@ function Greeting () {
 }
 
 Greeting.prototype.build = function () {
-  return "hello, world"
+  return "whatup, world"
 }
-
-module.exports = Greeting

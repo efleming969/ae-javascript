@@ -2,6 +2,6 @@
 
 var Main = require ( "./Main" )
 
-Main.start ( 8080, "./src/client", function ( server ) {
+Main.start ( 8080, function ( server ) {
   console.log ( "server started" )
 } )

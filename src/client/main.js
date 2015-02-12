@@ -1,6 +1,6 @@
-function Greeting () {
-}
+document.addEventListener( "DOMContentLoaded", main )
 
-Greeting.prototype.build = function ( name ) {
-  return "hello, " + name
+function main ( domEvent )
+{
+  console.log( "loaded" )
 }

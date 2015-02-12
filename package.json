@@ -19,14 +19,15 @@
   , "gulp-util": "~2.2"
   , "gulp-watch": "~0.6"
   , "gulp-sass": "~0.7"
-  , "gulp-browserify": "~0.5"
   , "gulp-rename": "~1.2"
+  , "gulp-concat": "~1.2"
   , "cucumber": "~0.4"
   , "webdriverio": "~2.1"
   , "supertest": "~0.13"
   , "mocha": "~1.21"
   , "chai": "~1.9"
   , "sinon": "~1.10"
+  , "nodemon": "*"
   }
 , "scripts":
   { "features": "./node_modules/.bin/cucumber-js"

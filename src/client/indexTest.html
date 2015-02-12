@@ -4,22 +4,22 @@
   <head>
     <meta charset="utf-8">
     <title>Mocha Tests</title>
-    <link rel="stylesheet" href="/mocha/mocha.css" />
+    <link rel="stylesheet" href="/dependencies/mocha.css" />
   </head>
 
   <body>
 
     <div id="mocha"></div>
 
-    <script src="/jquery/dist/jquery.js"></script>
-    <script src="/chai/chai.js"></script>
-    <script src="/sinon/pkg/sinon.js"></script>
-    <script src="/mocha/mocha.js"></script>
-    <script src="/underscore/underscore.js"></script>
+    <script src="/dependencies/jquery.js"></script>
+    <script src="/dependencies/underscore.js"></script>
+    <script src="/dependencies/chai.js"></script>
+    <script src="/dependencies/sinon.js"></script>
+    <script src="/dependencies/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
 
-    <script src="main.js"></script>
-    <script src="mainTest.js"></script>
+    <script src="index.js"></script>
+    <script src="indexTest.js"></script>
 
     <script>
       mocha.checkLeaks();
