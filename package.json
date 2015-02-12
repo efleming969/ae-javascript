@@ -20,7 +20,7 @@
   , "gulp-watch": "~0.6"
   , "gulp-sass": "~0.7"
   , "gulp-rename": "~1.2"
-  , "gulp-concat": "~1.2"
+  , "gulp-concat": "*"
   , "cucumber": "~0.4"
   , "webdriverio": "~2.1"
   , "supertest": "~0.13"
