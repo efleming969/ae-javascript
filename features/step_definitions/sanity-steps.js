@@ -1,5 +1,4 @@
 var assert = require ( "assert" )
-var Greeting = require ( "../../src/client/Greeting" )
 
 module.exports = function () {
 
@@ -14,19 +13,4 @@ module.exports = function () {
       next()
     } )
   })
-
-  this.Given(/^A standard greeting module$/, function (callback) {
-    this.greeting = new Greeting()
-    callback()
-  });
-  
-  this.When(/^I ask for a message$/, function (callback) {
-    this.result = this.greeting.build()
-    callback()
-  });
-  
-  this.Then(/^I should get "([^"]*)"$/, function (arg1, callback) {
-    assert.equal( this.result, arg1 )
-    callback()
-  });
 }

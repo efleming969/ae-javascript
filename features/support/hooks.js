@@ -7,7 +7,7 @@ module.exports = function () {
 
     var self = this
 
-    Main.start ( 8081, "./src/client", function ( server ) {
+    Main.start ( 8081, function ( server ) {
 
       self.server = server
 
