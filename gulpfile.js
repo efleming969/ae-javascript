@@ -12,37 +12,18 @@ gulp.task( "build:continuous", [ "build:all" ], continuousBuild )
 
 function buildScripts ()
 {
-  var dependencies =
-  [ "./node_modules/jquery/dist/jquery.js"
-  , "./node_modules/underscore/underscore.js"
-  , "./node_modules/chai/chai.js"
-  , "./node_modules/sinon/pkg/sinon.js"
-  , "./node_modules/mocha/mocha.js"
-  , "./node_modules/mocha/mocha.css"
-  ]
-
   var scripts =
-  [ "./src/client/Greeting.js"
-  , "./src/client/main.js"
+  [ "./src/client/main.js"
+  , "./src/client/Greeting.js"
   ]
-
-  var testScripts =
-  [ "./src/client/mainTest.js"
-  ]
-
-  gulp
-    .src( dependencies )
-    .pipe( gulp.dest ( "target/client/dependencies" ) )
 
   gulp
     .src( scripts )
     .pipe( concat( "index.js") )
     .pipe( gulp.dest( "target/client" ) )
 
-  gulp
-    .src( testScripts )
-    .pipe( concat( "indexTest.js") )
-    .pipe( gulp.dest( "target/client" ) )
+  buildTests()
+  buildDependencies()
 }
 
 function buildStatics ()
@@ -65,4 +46,32 @@ function continuousBuild ()
   gulp.watch( "src/client/**.html", [ "build:statics" ] )
   gulp.watch( "src/client/**.sass", [ "build:styles" ] )
   gulp.watch( "src/client/**.js", [ "build:scripts" ] )
+}
+
+function buildDependencies ()
+{
+  var dependencies =
+  [ "./node_modules/jquery/dist/jquery.js"
+  , "./node_modules/underscore/underscore.js"
+  , "./node_modules/chai/chai.js"
+  , "./node_modules/sinon/pkg/sinon.js"
+  , "./node_modules/mocha/mocha.js"
+  , "./node_modules/mocha/mocha.css"
+  ]
+
+  gulp
+    .src( dependencies )
+    .pipe( gulp.dest ( "target/client/dependencies" ) )
+}
+
+function buildTests ()
+{
+  var tests =
+  [ "./src/client/mainTest.js"
+  ]
+
+  gulp
+    .src( tests )
+    .pipe( concat( "indexTest.js") )
+    .pipe( gulp.dest( "target/client" ) )
 }

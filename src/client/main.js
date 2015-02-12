@@ -1,6 +1,8 @@
-document.addEventListener( "DOMContentLoaded", main )
+var app = {}
 
-function main ( domEvent )
-{
-  console.log( "loaded" )
-}
+$(document).ready ( function ( ) {
+
+  var greeting = new app.Greeting();
+
+  console.log( greeting.build() )
+} )

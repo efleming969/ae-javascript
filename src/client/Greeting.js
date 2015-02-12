@@ -1,6 +1,6 @@
-function Greeting () {
+app.Greeting = function Greeting () {
 }
 
-Greeting.prototype.build = function () {
+app.Greeting.prototype.build = function () {
   return "whatup, world"
 }
