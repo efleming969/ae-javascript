@@ -33,4 +33,8 @@
   { "features": "./node_modules/.bin/cucumber-js"
   , "app": "node ./src/server/runner.js"
   }
+, "jshintConfig":
+  { "asi": true
+  , "laxcomma": true
+  }
 }
