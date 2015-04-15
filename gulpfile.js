@@ -4,6 +4,15 @@ var gutil = require ( "gulp-util" )
 var sass = require ( "gulp-sass")
 var concat = require ( "gulp-concat")
 
+var scripts =
+[ "./src/client/main.js"
+, "./src/client/Greeting.js"
+]
+
+var tests =
+[ "./src/client/mainTest.js"
+]
+
 gulp.task( "build:statics", buildStatics )
 gulp.task( "build:styles", buildStyles )
 gulp.task( "build:scripts", buildScripts )
@@ -12,11 +21,6 @@ gulp.task( "build:continuous", [ "build:all" ], continuousBuild )
 
 function buildScripts ()
 {
-  var scripts =
-  [ "./src/client/main.js"
-  , "./src/client/Greeting.js"
-  ]
-
   gulp
     .src( scripts )
     .pipe( concat( "index.js") )
@@ -67,10 +71,6 @@ function buildDependencies ()
 
 function buildTests ()
 {
-  var tests =
-  [ "./src/client/mainTest.js"
-  ]
-
   gulp
     .src( tests )
     .pipe( concat( "indexTest.js") )
