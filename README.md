@@ -18,16 +18,22 @@ git clone git@github.com:efleming969/testing-nodejs.git
 npm install 
 ```
 
-4. continuously build the application
+4. install selenium and webdriver components (this can take awhile!)
+
+``` sh
+node ./node_modules/webdriver-manager/bin/webdriver-manager update
+```
+
+5. continuously build the application
 
 ``` sh
 npm run build-ci
 ```
 
-5. run the application
+6. run the application
 
 ``` sh
 npm run app
 ```
 
-6. open test runner in a browser http://localhost:8080/mainTest.js
+7. open test runner in a browser http://localhost:8080/mainTest.js

@@ -29,6 +29,7 @@
   , "chai": "latest"
   , "sinon": "latest"
   , "nodemon": "latest"
+  , "webdriver-manager": "latest"
   }
 , "scripts":
   { "features": "./node_modules/.bin/cucumber-js"
