@@ -57,6 +57,7 @@ function buildDependencies ()
   , "./node_modules/sinon/pkg/sinon.js"
   , "./node_modules/mocha/mocha.js"
   , "./node_modules/mocha/mocha.css"
+  , "./node_modules/ramda/dist/ramda.js"
   ]
 
   gulp
