@@ -36,6 +36,7 @@
   , "app": "node ./src/server/runner.js"
   , "build-all": "gulp build:all"
   , "build-ci": "gulp build:continuous"
+  , "tests": "mocha"
   }
 , "jshintConfig":
   { "asi": true
