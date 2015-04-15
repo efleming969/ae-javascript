@@ -7,31 +7,33 @@
   , "url": ""
   }
 , "dependencies":
-  { "express": "~4.4"
-  , "body-parser": "~1.4"
-  , "hash-router": "~0.4"
-  , "jquery": "~2.1"
-  , "underscore": "~1.7"
-  , "mustache": "~0.8"
+  { "express": "latest"
+  , "body-parser": "latest"
+  , "hash-router": "latest"
+  , "jquery": "latest"
+  , "underscore": "latest"
+  , "mustache": "latest"
+  , "ramda": "latest"
   }
 , "devDependencies":
-  { "gulp": "~3.8"
-  , "gulp-util": "~2.2"
-  , "gulp-watch": "~0.6"
-  , "gulp-sass": "~0.7"
-  , "gulp-rename": "~1.2"
-  , "gulp-concat": "*"
-  , "cucumber": "~0.4"
-  , "webdriverio": "~2.1"
-  , "supertest": "~0.13"
-  , "mocha": "~1.21"
-  , "chai": "~1.9"
-  , "sinon": "~1.10"
-  , "nodemon": "*"
+  { "gulp": "latest"
+  , "gulp-util": "latest"
+  , "gulp-watch": "latest"
+  , "gulp-sass": "latest"
+  , "gulp-rename": "latest"
+  , "gulp-concat": "latest"
+  , "cucumber": "latest"
+  , "webdriverio": "latest"
+  , "supertest": "latest"
+  , "mocha": "latest"
+  , "chai": "latest"
+  , "sinon": "latest"
+  , "nodemon": "latest"
   }
 , "scripts":
   { "features": "./node_modules/.bin/cucumber-js"
   , "app": "node ./src/server/runner.js"
+  , "build-all": "gulp build:all"
   }
 , "jshintConfig":
   { "asi": true
