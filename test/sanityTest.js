@@ -24,9 +24,9 @@ describe( "sanity test", function () {
 
   it( "sanity", function ( done ) {
     browser
-      .url( "http://localhost:8080" )
+      .url( "http://localhost:8081" )
       .getTitle( function ( err, title ) {
-        assert.equal ( title, "foo" )
+        assert.equal ( title, "something else" )
       } )
       .call( done )
   })
