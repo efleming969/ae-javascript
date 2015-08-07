@@ -21,7 +21,7 @@ npm install
 4. install selenium and webdriver components (this can take awhile!)
 
 ``` sh
-node ./node_modules/webdriver-manager/bin/webdriver-manager update
+node ./node_modules/.bin/selenium-standalone install
 ```
 
 5. continuously build the application
