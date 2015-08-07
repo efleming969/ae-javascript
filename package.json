@@ -28,10 +28,12 @@
   , "watchify": "latest"
   }
 , "scripts":
-  { "build:mainjs": "browserify client/main.js -o client/index.js"
+  { "clean": "rm client/index.js && rm client/indexTest.js"
+  , "build:mainjs": "browserify client/main.js -o client/index.js"
   , "build:mainjs-watch": "watchify client/main.js -o client/index.js"
   , "build:testjs": "browserify client/mainTest.js -o client/indexTest.js"
   , "build:testjs-watch": "watchify client/mainTest.js -o client/indexTest.js"
+  , "build:all": "npm run build:mainjs && npm run build:testjs"
   , "features": "cucumber-js features"
   , "features-wip": "cucumber-js --tags @wip features"
   , "selenium": "selenium-standalone start"
