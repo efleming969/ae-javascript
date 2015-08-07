@@ -24,11 +24,12 @@ describe( "sanity test", function () {
 
   it( "sanity", function ( done ) {
     browser
-      .url( "http://localhost:8081" )
+      .url( "http://localhost:8080" )
       .getTitle( function ( err, title ) {
-        assert.equal ( title, "something else" )
+        assert.equal ( title, "hello, world" )
       } )
       .call( done )
   })
 
 })
+

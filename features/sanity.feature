@@ -6,4 +6,5 @@ Feature: Executable scenarios
 @browser
 Scenario: browser automation
   Given I'm on the main screen
-  Then I should see "WeBowler" in the title
+   Then I should see "hello, world" in the title
+

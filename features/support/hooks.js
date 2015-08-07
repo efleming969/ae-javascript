@@ -1,21 +1,22 @@
 var webdriverjs = require ( "webdriverio" )
-var Main = require ( "../../src/server/Main" )
 
-module.exports = function () {
+var before = function before( callback ) {
 
-  this.Before("@browser", function ( callback ) {
-    var self = this
-    self.browser = webdriverjs.remote (
-      { desiredCapabilities: { browserName: "firefox" }
-      , logLevel: 'info' } )
+  var options = {
+    desiredCapabilities: { browserName: "firefox" }
+  , logLevel: "info"
+  }
 
-    self.browser.init()
-    callback ()
-  } )
-
-  this.After("@browser", function ( callback ) {
-    var self = this
-    self.browser.end ( callback )
-  } )
-
+  this.browser = webdriverjs.remote( options )
+  this.browser.init( callback )
 }
+
+var after = function after( callback ) {
+  this.browser.end( callback )
+}
+
+module.exports = function() {
+  this.Before( "@browser", before )
+  this.After( "@browser", after )
+}
+

@@ -1,16 +1,16 @@
-var assert = require ( "assert" )
+var assert = require( "assert" )
 
-module.exports = function () {
+module.exports = function() {
 
-  this.Given(/^I'm on the main screen$/, function ( next ) {
-    this.browser.url( "http://localhost:8081" ).call( next )
-  })
+  this.Given( /^I'm on the main screen$/, function( callback ) {
+    this.browser.url( "http://localhost:8080" ).call( callback )
+  } )
 
-  this.Then(/^I should see "([^"]*)" in the title$/
-  , function ( expectedTitle, next ) {
-    this.browser.getTitle ( function (err, title) {
-      assert.equal ( title, expectedTitle )
-      next()
-    } )
-  })
+  this.Then( /^I should see "([^"]*)" in the title$/, function( expectedTitle, callback ) {
+    this.browser.getTitle( function ( err, title ) {
+      assert.equal( title, expectedTitle )
+    } ).call( callback )
+  } )
+
 }
+

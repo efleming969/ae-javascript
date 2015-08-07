@@ -1,4 +1,4 @@
-{ "name": "ae-testing"
+{ "name": "testing-nodejs"
 , "description": "base project for exploring testing"
 , "version": "0.0.1"
 , "license": "MIT"
@@ -16,30 +16,27 @@
   , "ramda": "latest"
   }
 , "devDependencies":
-  { "gulp": "latest"
-  , "gulp-util": "latest"
-  , "gulp-watch": "latest"
-  , "gulp-sass": "latest"
-  , "gulp-rename": "latest"
-  , "gulp-concat": "latest"
-  , "cucumber": "latest"
+  { "cucumber": "latest"
   , "webdriverio": "latest"
   , "supertest": "latest"
   , "mocha": "latest"
   , "chai": "latest"
   , "sinon": "latest"
   , "nodemon": "latest"
-  , "webdriver-manager": "latest"
+  , "selenium-standalone": "latest"
+  , "browserify": "latest"
+  , "watchify": "latest"
   }
 , "scripts":
-  { "features": "./node_modules/.bin/cucumber-js"
-  , "app": "node ./src/server/runner.js"
-  , "build-all": "gulp build:all"
-  , "build-ci": "gulp build:continuous"
-  , "tests": "mocha"
-  }
-, "jshintConfig":
-  { "asi": true
-  , "laxcomma": true
+  { "build:mainjs": "browserify client/main.js -o client/index.js"
+  , "build:mainjs-watch": "watchify client/main.js -o client/index.js"
+  , "build:testjs": "browserify client/mainTest.js -o client/indexTest.js"
+  , "build:testjs-watch": "watchify client/mainTest.js -o client/indexTest.js"
+  , "features": "cucumber-js features"
+  , "features-wip": "cucumber-js --tags @wip features"
+  , "selenium": "selenium-standalone start"
+  , "server": "node server/index.js"
+  , "server-watch": "nodemon --watch server server/index.js"
   }
 }
+
