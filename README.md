@@ -27,13 +27,13 @@ node ./node_modules/.bin/selenium-standalone install
 5. continuously build the application
 
 ``` sh
-npm run build-ci
+npm run build:all
 ```
 
 6. run the application
 
 ``` sh
-npm run app
+npm run server
 ```
 
 7. open test runner in a browser http://localhost:8080/mainTest.js
