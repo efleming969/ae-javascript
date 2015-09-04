@@ -25,7 +25,6 @@
   , "browserify": "latest"
   , "watchify": "latest"
   , "selenium-webdriver": "latest"
-  , "chromedriver": "latest"
   }
 , "scripts":
   { "features": "cucumber-js features"
