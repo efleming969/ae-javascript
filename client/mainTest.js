@@ -1,20 +1,19 @@
-var assert = require( "chai" ).assert
-var Greeting = require( "./Greeting" )
+var assert = chai.assert;
 
 describe( "greeting", function() {
 
   it( "should build a default message", function() {
 
     // arrange (given)
-    var g = new Greeting()
+    var g = new Greeting();
 
     // act (when)
-    g.build()
+    g.build();
 
     // assert (then)
-    assert.equal( "whatup, world", g.message )
+    assert.equal( "whatup, world", g.message );
 
-  } )
+  } );
 
-} )
+} );
 
