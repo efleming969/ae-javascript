@@ -1,35 +1,29 @@
 var assert = require( "chai" ).assert
-var webdriverjs = require ( "webdriverio" )
+var selenium = require( "selenium-webdriver" );
+
+var createWebDriver = function createWebDriver() {
+  return new selenium.Builder()
+    .withCapabilities( selenium.Capabilities.firefox() )
+    .build();
+};
 
 describe( "sanity test", function () {
 
-  var browser
-
+  // this tells mocha to not be so impatient
   this.timeout(999999);
 
-  beforeEach( function ( done ) {
-
-    browser = webdriverjs.remote (
-      { desiredCapabilities: { browserName: "firefox" }
-      , logLevel: 'info'
-      } )
-
-    browser.init( done )
-
-  } )
-
-  afterEach( function ( done ) {
-    browser.end( done )
-  } )
-
   it( "sanity", function ( done ) {
-    browser
-      .url( "http://localhost:8080" )
-      .getTitle( function ( err, title ) {
-        assert.equal ( title, "hello, world" )
-      } )
-      .call( done )
-  })
 
-})
+    var wd = createWebDriver()
+    wd.get( "http://www.google.com/" );
+    wd.getTitle().then( function( text ) {
+      assert.equal ( text, "Google" );
+      wd.quit();
+      done();
+
+    } );
+
+  } );
+
+} );
 

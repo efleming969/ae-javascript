@@ -1,22 +1,20 @@
-var webdriverjs = require ( "webdriverio" )
+var selenium = require( "selenium-webdriver" );
 
 var before = function before( callback ) {
+  this.browser = new selenium.Builder()
+    .withCapabilities( selenium.Capabilities.firefox() )
+    .build();
 
-  var options = {
-    desiredCapabilities: { browserName: "firefox" }
-  , logLevel: "info"
-  }
-
-  this.browser = webdriverjs.remote( options )
-  this.browser.init( callback )
+  callback();
 }
 
 var after = function after( callback ) {
-  this.browser.end( callback )
+  this.browser.quit();
+  callback();
 }
 
 module.exports = function() {
-  this.Before( "@browser", before )
-  this.After( "@browser", after )
+  this.Before( "@e2e", before )
+  this.After( "@e2e", after )
 }
 

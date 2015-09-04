@@ -1,16 +1,22 @@
-var assert = require( "assert" )
+var assert = require( "assert" );
 
 module.exports = function() {
 
-  this.Given( /^I'm on the main screen$/, function( callback ) {
-    this.browser.url( "http://localhost:8080" ).call( callback )
-  } )
+  this.Given( /^I'm on google's home page$/, function( callback ) {
+
+    this.browser.get( "http://www.google.com/" );
+    callback();
+
+  } );
 
   this.Then( /^I should see "([^"]*)" in the title$/, function( expectedTitle, callback ) {
-    this.browser.getTitle( function ( err, title ) {
-      assert.equal( title, expectedTitle )
-    } ).call( callback )
-  } )
 
-}
+    this.browser.getTitle().then( function( text ) {
+      assert.equal( text, expectedTitle );
+      callback()
+    } );
+
+  } );
+
+};
 
