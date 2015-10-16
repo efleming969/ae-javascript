@@ -1,6 +1,6 @@
 var selenium = require( "selenium-webdriver" );
 
-var before = function before( callback ) {
+var before = function before( scenario, callback ) {
   this.browser = new selenium.Builder()
     .withCapabilities( selenium.Capabilities.firefox() )
     .build();
@@ -8,7 +8,7 @@ var before = function before( callback ) {
   callback();
 }
 
-var after = function after( callback ) {
+var after = function after( scenario, callback ) {
   this.browser.quit();
   callback();
 }
