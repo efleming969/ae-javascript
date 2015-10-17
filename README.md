@@ -1,24 +1,14 @@
-# testing-nodejs
+# Agile Engineering (JavaScript)
 
-Basic environment to work with javascript and testing
+This project provides an environment for working through exercises in an Agile Engineering course.
 
-# getting started
+## Getting started
 
 1. install nodejs (https://nodejs.org/)
 
-2. clone the repository on your local machine
+2. clone or download the repository to your local machine
 
 ``` sh
-git clone git@github.com:efleming969/testing-nodejs.git
+git clone git@github.com:efleming969/ae-nodejs.git
 ```
-3. from inside the project directory, install necessary dependencies
 
-``` sh
-npm install 
-```
-6. run the application
-
-``` sh
-npm run server
-```
-7. open test runner in a browser http://localhost:8080/indexTest.html
