@@ -1,14 +1,13 @@
-# Agile Engineering (JavaScript)
+# Agile Engineering - JavaScript
 
-This project provides an environment for working through exercises in an Agile Engineering course.
+This repository provides a starting point for exercises from an Agile Engineering course from [Braintrust](https://www.braintrustgroup.com/class-descriptions/certified-scrum-developer-agile-engineering/agile-engineering/)
 
 ## Getting started
 
-1. install nodejs (https://nodejs.org/)
-
-2. clone or download the repository to your local machine
+1. Install nodejs (https://nodejs.org/)
+2. clone or [download](https://github.com/efleming969/ae-javascript/archive/master.zip) the repository to your local machine
 
 ``` sh
-git clone git@github.com:efleming969/ae-nodejs.git
+git clone git@github.com:efleming969/ae-javascript.git
 ```
 
