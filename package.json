@@ -30,8 +30,7 @@
   { "features": "cucumber-js features"
   , "features-wip": "cucumber-js --tags @wip features"
   , "tests": "mocha test/**/*.js"
-  , "server": "node index.js"
-  , "server-watch": "nodemon index.js"
+  , "server": "nodemon server/index.js"
   }
 }
 
