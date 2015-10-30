@@ -1,5 +1,5 @@
-{ "name": "testing-nodejs"
-, "description": "base project for exploring testing"
+{ "name": "ae-javascript"
+, "description": "base project for exploring testing in javascript"
 , "version": "0.0.1"
 , "license": "MIT"
 , "repository":
