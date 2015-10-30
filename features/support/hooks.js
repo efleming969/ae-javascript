@@ -1,20 +1,19 @@
 var selenium = require( "selenium-webdriver" );
 
-var before = function before( scenario, callback ) {
+var beforeE2E = function( scenario ) {
+  console.log( "============ starting browser ============" )
   this.browser = new selenium.Builder()
     .withCapabilities( selenium.Capabilities.firefox() )
     .build();
-
-  callback();
 }
 
-var after = function after( scenario, callback ) {
+var afterE2E = function( scenario ) {
+  console.log( "============ shutting down browser ============" )
   this.browser.quit();
-  callback();
 }
 
 module.exports = function() {
-  this.Before( "@e2e", before )
-  this.After( "@e2e", after )
+  this.Before( "@e2e", beforeE2E )
+  this.After( "@e2e", afterE2E )
 }
 
