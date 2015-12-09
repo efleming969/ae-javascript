@@ -3,7 +3,7 @@ var Greeting = function Greeting () {
 };
 
 Greeting.prototype.build = function () {
-  this.message = "whatup, world"
+  this.message = "hello, world"
 };
 
 var main = function() {

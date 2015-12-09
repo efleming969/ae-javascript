@@ -11,7 +11,7 @@ describe( "greeting", function() {
     g.build();
 
     // assert (then)
-    assert.equal( "whatup, world", g.message );
+    assert.equal( "hello, world", g.message );
 
   } );
 
