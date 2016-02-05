@@ -11,7 +11,7 @@
   , "body-parser": "latest"
   , "hash-router": "latest"
   , "jquery": "latest"
-  , "lodash": "latest"
+  , "underscore": "latest"
   , "ramda": "latest"
   , "mustache": "latest"
   }
