@@ -18,7 +18,7 @@
 , "devDependencies":
   { "cucumber": "latest"
   , "supertest": "latest"
-  , "mocha": "latest"
+  , "mocha": "2.3.x"
   , "chai": "latest"
   , "sinon": "latest"
   , "nodemon": "latest"
