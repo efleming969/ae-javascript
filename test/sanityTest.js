@@ -9,18 +9,17 @@ var createWebDriver = function createWebDriver() {
 
 describe( "sanity test", function () {
 
-  // this tells mocha to not be so impatient
+  // this tells mocha to not be so impatient is a hack
   this.timeout(999999);
 
   it( "sanity", function ( done ) {
 
     var wd = createWebDriver()
-    wd.get( "http://www.google.com/" );
+    wd.get( "http://localhost:8080/" );
     wd.getTitle().then( function( text ) {
-      assert.equal ( text, "Google" );
+      assert.equal ( text, "Welcome Home" );
       wd.quit();
       done();
-
     } );
 
   } );
