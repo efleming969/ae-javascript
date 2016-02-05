@@ -5,7 +5,7 @@ describe( "greeting", function() {
   it( "should build a default message", function() {
 
     // arrange (given)
-    var g = new Greeting();
+    var g = new index.Greeting();
 
     // act (when)
     g.build();

@@ -1,13 +1,15 @@
-var Greeting = function Greeting () {
+var index = {}
+
+index.Greeting = function Greeting () {
   this.message = "";
 };
 
-Greeting.prototype.build = function () {
+index.Greeting.prototype.build = function () {
   this.message = "hello, world"
 };
 
-var main = function() {
-  var g = new Greeting();
+index.main = function() {
+  var g = new index.Greeting();
   g.build()
   console.log( g.message )
 };
