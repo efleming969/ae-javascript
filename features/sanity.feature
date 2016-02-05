@@ -5,6 +5,6 @@ Feature: Executable scenarios
 
 @e2e
 Scenario: browser automation
-  Given I'm on google's home page
-   Then I should see "Googles" in the title
+  Given I'm on the home page
+   Then I should see "Welcome Home" in the title
 

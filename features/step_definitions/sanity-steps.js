@@ -2,9 +2,9 @@ var assert = require( "assert" );
 
 module.exports = function() {
 
-  this.Given( /^I'm on google's home page$/, function( callback ) {
+  this.Given( /^I'm on the home page$/, function( callback ) {
 
-    this.browser.get( "http://www.google.com/" );
+    this.browser.get( "http://localhost:8080/" );
     callback();
 
   } );
