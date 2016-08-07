@@ -1,36 +1,37 @@
-{ "name": "ae-javascript"
-, "description": "base project for exploring testing in javascript"
-, "version": "0.0.1"
-, "license": "MIT"
-, "repository":
-  { "type": "git"
-  , "url": ""
-  }
-, "dependencies":
-  { "express": "latest"
-  , "body-parser": "latest"
-  , "hash-router": "latest"
-  , "jquery": "latest"
-  , "underscore": "latest"
-  , "ramda": "latest"
-  , "mustache": "latest"
-  }
-, "devDependencies":
-  { "cucumber": "latest"
-  , "supertest": "latest"
-  , "mocha": "2.3.x"
-  , "chai": "latest"
-  , "sinon": "latest"
-  , "nodemon": "latest"
-  , "browserify": "latest"
-  , "watchify": "latest"
-  , "selenium-webdriver": "latest"
-  }
-, "scripts":
-  { "features": "cucumber-js features"
-  , "features-wip": "cucumber-js --tags @wip features"
-  , "tests": "mocha test/**/*.js"
-  , "server": "nodemon server/index.js"
+{
+  "name": "ae-javascript",
+  "description": "base project for exploring testing in javascript",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "hash-router": "latest",
+    "jquery": "latest",
+    "underscore": "latest",
+    "ramda": "latest",
+    "mustache": "latest"
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "chai": "latest",
+    "chromedriver": "^2.22.2",
+    "cucumber": "latest",
+    "mocha": "2.3.x",
+    "nodemon": "latest",
+    "selenium-webdriver": "latest",
+    "sinon": "latest",
+    "supertest": "latest",
+    "watchify": "latest"
+  },
+  "scripts": {
+    "features": "cucumber-js features",
+    "features-wip": "cucumber-js --tags @wip features",
+    "tests": "mocha test/**/*.js",
+    "server": "nodemon server/index.js"
   }
 }
-
