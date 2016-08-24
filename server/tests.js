@@ -1,11 +1,13 @@
-var assert = chai.assert;
+var assert = require( "chai" ).assert
 
-describe( "client-side greeting", function() {
+var Greeting = require( './Greeting' )
+
+describe( "server-side greeting", function() {
 
   it( "should build a default message", function() {
 
     // arrange (given)
-    var g = new index.Greeting();
+    var g = new Greeting();
 
     // act (when)
     g.build();
@@ -16,4 +18,3 @@ describe( "client-side greeting", function() {
   } );
 
 } );
-

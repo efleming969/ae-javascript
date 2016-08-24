@@ -5,7 +5,7 @@ index.Greeting = function Greeting () {
 };
 
 index.Greeting.prototype.build = function () {
-  this.message = "hello, world"
+  this.message = "Hello, World"
 };
 
 index.main = function() {

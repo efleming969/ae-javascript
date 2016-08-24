@@ -2,6 +2,9 @@ require( 'chromedriver' )
 
 var assert = require( "chai" ).assert
 var selenium = require( "selenium-webdriver" );
+var wdio = require( 'webdriverio' )
+
+console.log( wdio )
 
 var createWebDriver = function () {
   return new selenium.Builder()
@@ -11,7 +14,6 @@ var createWebDriver = function () {
 
 describe( "sanity test", function () {
 
-  // this tells mocha to not be so impatient is a hack
   this.timeout(999999);
 
   it( "sanity", function ( done ) {
