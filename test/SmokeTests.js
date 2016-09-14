@@ -2,9 +2,6 @@ require( 'chromedriver' )
 
 var assert = require( "chai" ).assert
 var selenium = require( "selenium-webdriver" );
-var wdio = require( 'webdriverio' )
-
-console.log( wdio )
 
 var createWebDriver = function () {
   return new selenium.Builder()
